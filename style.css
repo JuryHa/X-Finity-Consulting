@@ -200,6 +200,10 @@ header {
   transition: var(--animation-length) background-color ease-in-out;
 }
 
+header>a img {
+  padding-block: 2rem;
+}
+
 header img {
   max-height: 120px;
 }
@@ -319,7 +323,7 @@ header a {
 
 .badge {
   display: flex;
-  gap: 3rem;
+  gap: 0;
   margin-bottom: 4rem;
   background-color: var(--clr-default-100);
   border-radius: var(--br-400);
