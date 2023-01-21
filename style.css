@@ -250,7 +250,7 @@ header a {
 .tiles {
   margin-top: 4rem;
   display: flex;
-  gap: 4rem;
+  gap: 2rem;
 }
 
 .tile {
