@@ -1,0 +1,305 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* CUSTOM */
+:root {
+  --animation-length: 0.3s;
+
+  --clr-default-100: #ffffff;
+  --clr-default-200: #f4f7ff;
+  --clr-default-300: #ecebf6;
+  --clr-default-400: #425466;
+  --clr-default-500: #0b2845;
+  --clr-default-900: #000000;
+
+  --clr-rgb-100: 255, 255, 255;
+  --clr-rgb-200: 244, 247, 255;
+  --clr-rgb-300: 236, 235, 246;
+  --clr-rgb-400: 66, 84, 102;
+  --clr-rgb-500: 11, 40, 69;
+
+  --bg-gradient-100: linear-gradient(to bottom, rgba(var(--clr-rgb-200), 1), rgba(var(--clr-rgb-300), 1));
+  --bg-gradient-200: linear-gradient(to bottom, rgba(var(--clr-rgb-400), 1), rgba(var(--clr-rgb-500), 1));
+
+  --box-shadow-100: 0 5px 25px -15px var(--clr-default-400);
+
+  --br-400: 15px;
+}
+
+* {
+  /* outline: 1px solid black; */
+  font-family: 'Euclid Circular A', sans-serif;
+  color: var(--clr-default-500);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: 80px;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1400px;
+  padding: 6rem 2rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.container__full::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 600%;
+  height: 100%;
+  z-index: -20;
+  margin-left: -250%;
+  background: var(--bg-gradient-100);
+}
+
+
+.blot {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: var(--bg-gradient-200);
+  filter: blur(6rem);
+  transform: translateY(-50%);
+  z-index: -10;
+}
+
+.blot--left {
+  top: 40%;
+  left: 10%;
+}
+
+.blot--right {
+  top: 70%;
+  right: 20%;
+}
+
+.container>h1 {
+  font-size: 58px;
+  font-family: 'Syne', sans-serif;
+}
+
+.container>h2 {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.container>p {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: calc(1400px - 4rem);
+  padding: 0rem 2rem;
+  margin: 0 auto;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 4rem);
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 1rem;
+  border-radius: var(--br-400);
+  transition: var(--animation-length) background-color ease-in-out;
+}
+
+header img {
+  max-height: 120px;
+}
+
+header ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+}
+
+header a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* SECTION HOME */
+#home.container__full {
+  padding-top: 360px;
+  padding-bottom: 120px;
+  margin-top: -120px;
+}
+
+#home h1 {
+  margin-bottom: 3rem;
+  max-width: 16ch;
+}
+
+#home p {
+  text-align: left;
+  margin: 0 auto 0 0;
+}
+
+.tiles {
+  margin-top: 4rem;
+  display: flex;
+  gap: 4rem;
+}
+
+.tile {
+  box-shadow: var(--box-shadow-100);
+  padding: 2rem;
+  border-radius: var(--br-400);
+}
+
+.tile .container__image {
+  background-color: var(--clr-default-300);
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 50%;
+}
+
+.tile h3 {
+  margin-block: 1rem;
+}
+
+.cards {
+  display: flex;
+  gap: 4rem;
+}
+
+.cards__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  flex: 4;
+}
+
+.cards__container:nth-child(2) {
+  flex: 3;
+  justify-content: center;
+}
+
+.cards__container:nth-child(2) img {
+  border-radius: var(--br-400);
+  box-shadow: var(--box-shadow-100);
+}
+
+.card {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  background-color: var(--clr-default-100);
+
+  box-shadow: var(--box-shadow-100);
+  padding: 2rem 1rem;
+  border-radius: var(--br-400);
+}
+
+.cards__container:first-child .card:first-child,
+.cards__container:first-child .card:last-child {
+  margin-right: -2rem;
+  margin-left: 2rem;
+}
+
+.cards__container:last-child .card:first-child,
+.cards__container:last-child .card:last-child {
+  margin-left: -2rem;
+  margin-right: 2rem;
+}
+
+.card img {
+  height: fit-content;
+  align-self: center;
+}
