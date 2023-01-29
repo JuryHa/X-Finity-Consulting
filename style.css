@@ -455,6 +455,10 @@ header a {
 }
 
 @media (max-width: 767px) {
+  html {
+    scroll-padding: 60px;
+  }
+
   .menu-toggle {
     display: block;
   }
