@@ -19,7 +19,7 @@
 */
 html,
 body {
-  height: 100%;
+  min-height: 100vh;
 }
 
 /*
@@ -84,6 +84,7 @@ h6 {
   --clr-default-300: #ecebf6;
   --clr-default-400: #425466;
   --clr-default-500: #0b2845;
+  --clr-default-500: #062c66;
   --clr-default-900: #000000;
 
   --clr-rgb-100: 255, 255, 255;
@@ -205,7 +206,7 @@ header.scrolled-to-top {
   background-color: white;
 }
 
-header>a img {
+header img {
   padding-block: 2rem;
 }
 
@@ -225,15 +226,49 @@ header a {
   text-decoration: none;
 }
 
-header button {
-  background: var(--bg-gradient-100);
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: 0.5rem 1rem;
-  box-shadow: var(--box-shadow-100);
+.menu-toggle {
+  padding: 1rem 0.5rem;
+  background: transparent;
+  border: 0;
+  position: absolute;
+  top: 25px;
+  right: 0.5rem;
   cursor: pointer;
   display: none;
 }
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  display: block;
+  background: var(--clr-default-500);
+  height: 3px;
+  width: 1.75em;
+  border-radius: 3px;
+  transition: all ease-in-out 500ms;
+}
+
+.hamburger::before {
+  transform: translateY(-7px);
+}
+
+.hamburger::after {
+  transform: translateY(4px);
+}
+
+[aria-expanded="true"] .hamburger {
+  transform: rotate(45deg);
+}
+
+[aria-expanded="true"] .hamburger::before {
+  opacity: 0;
+}
+
+[aria-expanded="true"] .hamburger::after {
+  transform: translateY(-3px) rotate(-90deg);
+}
+
 
 /* SECTION HOME */
 #home.container__full {
@@ -266,6 +301,8 @@ header button {
   margin-top: 4rem;
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .tile {
@@ -280,6 +317,10 @@ header button {
   width: fit-content;
   padding: 1rem;
   border-radius: 50%;
+}
+
+.tile img {
+  width: 4rem;
 }
 
 .tile h3 {
@@ -414,14 +455,24 @@ header button {
 }
 
 @media (max-width: 767px) {
-  header button {
+  .menu-toggle {
     display: block;
+  }
+
+  header {
+    padding: 0rem 1rem;
+    width: calc(100% - 2rem);
+  }
+
+  header img {
+    max-height: 80px;
+    padding-block: 1.25rem;
   }
 
   header nav {
     position: absolute;
     background: white;
-    top: 99px;
+    top: 65px;
     width: 100%;
     left: 0;
     padding: 2rem;
@@ -430,13 +481,13 @@ header button {
     text-align: center;
     gap: 3rem;
     border-radius: 0 0 15px 15px;
+    box-shadow: 0 13px 25px -15px var(--clr-default-400);
 
     max-height: 0;
     overflow: hidden;
     padding: 0;
 
     transition: max-height var(--animation-length) ease-in-out;
-    transition-delay: var(--animation-length);
   }
 
   header.navigation-opened {
@@ -444,9 +495,8 @@ header button {
     border-radius: 15px 15px 0 0;
   }
 
-  header.navigation-opened nav {
+  header nav.nav--open {
     max-height: 100vh;
-    box-shadow: 0 13px 25px -15px var(--clr-default-400);
   }
 
   header ul {
