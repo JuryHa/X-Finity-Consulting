@@ -475,23 +475,21 @@ footer>.container:last-child::after {
   background: var(--clr-default-500);
 }
 
-footer .contact {
+.contact {
   background-color: #f3621b;
   background-image: url('img/image_background_01.png');
   background-position: bottom;
   background-size: cover;
   background-repeat: no-repeat;
   background-blend-mode: overlay;
-}
 
-.contact {
   display: flex;
   justify-content: center;
   gap: 4rem;
   background: var(--bg-gradient-100);
   border-top-left-radius: var(--br-400);
   border-top-right-radius: var(--br-400);
-  padding: 4rem;
+  padding: 8rem 2rem;
 }
 
 .container__contact {
