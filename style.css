@@ -484,6 +484,7 @@ footer>.container:last-child::after {
   background-blend-mode: overlay;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 4rem;
   background: var(--bg-gradient-100);
@@ -505,6 +506,7 @@ footer>.container:last-child::after {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  gap: 2rem;
 }
 
 .contact__links a {
