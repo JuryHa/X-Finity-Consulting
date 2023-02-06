@@ -487,7 +487,6 @@ footer>.container:last-child::after {
   flex-wrap: wrap;
   justify-content: center;
   gap: 4rem;
-  background: var(--bg-gradient-100);
   border-top-left-radius: var(--br-400);
   border-top-right-radius: var(--br-400);
   padding: 8rem 2rem;
