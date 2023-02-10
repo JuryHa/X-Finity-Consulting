@@ -538,7 +538,7 @@ header a {
 }
 
 footer>.container:first-child {
-  padding-bottom: 0;
+  padding-block: 0;
 }
 
 footer>.container:last-child {
