@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>X-Finity Consulting</title>
   <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
-  <link href="https://fonts.cdnfonts.com/css/euclid-circular-a" rel="stylesheet">
+  <link href="https://fonts.cdnfonts.com/css/euclid-circular-a" rel="preload" as="font">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700&display=swap" rel="stylesheet" defer>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
@@ -18,9 +18,9 @@
 <body>
   <header>
     <a href="#home">
-      <img src="img/LOGO_2.png" alt="">
+      <img src="img/LOGO_2.png" alt="Logo image">
     </a>
-    <button class="menu-toggle" aria-controls="primary-navigation" aria-expanded="false">
+    <button class="menu-toggle" aria-label="navigation" aria-controls="primary-navigation" aria-expanded="false">
       <div class="hamburger"></div>
     </button>
     <nav>
